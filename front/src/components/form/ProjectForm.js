@@ -31,7 +31,7 @@ const Input = styled.input`
   border-radius: 4px;
 `;
 
-function FormModal({ onClose, onSubmit }) {
+function ProjectForm({ onClose, onSubmit }) {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
 
@@ -64,4 +64,4 @@ function FormModal({ onClose, onSubmit }) {
   );
 }
 
-export default FormModal;
+export default ProjectForm;

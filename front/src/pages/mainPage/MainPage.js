@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import ProjectList from '../../components/project/ProjectList';
 import ActionButton from '../../components/button/ActionButton';
-import FormModal from '../../components/form/FormModal';
+import ProjectForm from '../../components/form/ProjectForm';
 import dummyData from '../../dummyData/dummyData';
 
 const Container = styled.div`
@@ -79,7 +79,7 @@ const MainPage = () => {
       </ProjectContainer>
 
       {showProjectModal && (
-        <FormModal
+        <ProjectForm
           type="project"
           onClose={() => setShowProjectModal(false)}
           onSubmit={handleAddProject}
