@@ -30,7 +30,7 @@ const TaskDescription = styled.p`
 
 const TaskDueDate = styled.div`
   font-size: 12px;
-  color: black;
+  color: ${(props) => (props.isCloseToDeadline ? 'red' : 'black')};
 `;
 
 const TaskActions = styled.div`
@@ -52,13 +52,30 @@ const ActionButton = styled.button`
   }
 `;
 
+const isCloseToDeadline = (dueDate) => {
+  if (!dueDate) return false;
+
+  const currentDate = new Date();
+  const targetDate = new Date(dueDate);
+
+  currentDate.setHours(0, 0, 0, 0);
+  targetDate.setHours(0, 0, 0, 0);
+
+  const timeDiff = targetDate - currentDate;
+  const daysLeft = timeDiff / (1000 * 60 * 60 * 24);
+
+  return daysLeft <= 3 && daysLeft >= 0;
+};
+
 function TaskItem({ task, onDelete, onEdit }) {
   return (
     <TaskContainer>
       <TaskInfo>
         <TaskName isCompleted={task.status === '완료'}>{task.name}</TaskName>
         <TaskDescription>{task.description}</TaskDescription>
-        <TaskDueDate>마감일: {task.dueDate}</TaskDueDate>
+        <TaskDueDate isCloseToDeadline={isCloseToDeadline(task.dueDate)}>
+          마감일: {task.dueDate}
+        </TaskDueDate>
         <TaskState label={task.status} />
       </TaskInfo>
       <TaskActions>
