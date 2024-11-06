@@ -10,6 +10,7 @@ const TaskContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border: 2px solid ${(props) => (props.isOverdue ? '#FF7272' : 'transparent')};
 `;
 
 const TaskInfo = styled.div`
@@ -30,7 +31,7 @@ const TaskDescription = styled.p`
 
 const TaskDueDate = styled.div`
   font-size: 12px;
-  color: ${(props) => (props.isCloseToDeadline ? 'red' : 'black')};
+  color: ${(props) => (props.isCloseToDeadline ? '#FF7272' : 'black')};
 `;
 
 const TaskActions = styled.div`
@@ -67,9 +68,21 @@ const isCloseToDeadline = (dueDate) => {
   return daysLeft <= 3 && daysLeft >= 0;
 };
 
+const isOverdue = (dueDate) => {
+  if (!dueDate) return false;
+
+  const currentDate = new Date();
+  const targetDate = new Date(dueDate);
+
+  currentDate.setHours(0, 0, 0, 0);
+  targetDate.setHours(0, 0, 0, 0);
+
+  return targetDate < currentDate;
+};
+
 function TaskItem({ task, onDelete, onEdit }) {
   return (
-    <TaskContainer>
+    <TaskContainer isOverdue={isOverdue(task.dueDate)}>
       <TaskInfo>
         <TaskName isCompleted={task.status === '완료'}>{task.name}</TaskName>
         <TaskDescription>{task.description}</TaskDescription>
