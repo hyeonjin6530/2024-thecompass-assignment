@@ -20,6 +20,7 @@ const TaskInfo = styled.div`
 
 const TaskName = styled.div`
   font-size: 16px;
+  text-decoration: ${(props) => (props.isCompleted ? 'line-through' : 'none')};
 `;
 
 const TaskDescription = styled.p`
@@ -29,7 +30,7 @@ const TaskDescription = styled.p`
 
 const TaskDueDate = styled.div`
   font-size: 12px;
-  color: #999;
+  color: black;
 `;
 
 const TaskActions = styled.div`
@@ -43,7 +44,7 @@ const ActionButton = styled.button`
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  background-color: ${(props) => props.bgColor || '#ddd'};
+  background-color: ${(props) => props.bgColor || '000000'};
   color: white;
 
   &:hover {
@@ -55,7 +56,7 @@ function TaskItem({ task, onDelete, onEdit }) {
   return (
     <TaskContainer>
       <TaskInfo>
-        <TaskName>{task.name}</TaskName>
+        <TaskName isCompleted={task.status === '완료'}>{task.name}</TaskName>
         <TaskDescription>{task.description}</TaskDescription>
         <TaskDueDate>마감일: {task.dueDate}</TaskDueDate>
         <TaskState label={task.status} />
