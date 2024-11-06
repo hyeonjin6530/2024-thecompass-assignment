@@ -10,7 +10,6 @@ const dummyProjects = [
         name: '태스크 1',
         description: '첫 번째 태스크입니다.',
         status: '완료',
-        priority: '상',
         dueDate: '2023-11-02',
       },
       {
@@ -18,7 +17,6 @@ const dummyProjects = [
         name: '태스크 2',
         description: '두 번째 태스크입니다.',
         status: '진행 중',
-        priority: '중',
         dueDate: '2023-11-07',
       },
       {
@@ -26,7 +24,6 @@ const dummyProjects = [
         name: '태스크 3',
         description: '세 번째 태스크입니다.',
         status: '진행 중',
-        priority: '하',
         dueDate: '2023-11-10',
       },
     ],
@@ -42,7 +39,6 @@ const dummyProjects = [
         name: '태스크 1',
         description: '첫 번째 태스크입니다.',
         status: '완료',
-        priority: '상',
         dueDate: '2023-11-02',
       },
       {
@@ -50,7 +46,6 @@ const dummyProjects = [
         name: '태스크 2',
         description: '두 번째 태스크입니다.',
         status: '진행 중',
-        priority: '중',
         dueDate: '2023-11-07',
       },
       {
@@ -58,7 +53,6 @@ const dummyProjects = [
         name: '태스크 3',
         description: '세 번째 태스크입니다.',
         status: '진행 중',
-        priority: '하',
         dueDate: '2023-11-10',
       },
     ],
@@ -74,7 +68,6 @@ const dummyProjects = [
         name: '태스크 1',
         description: '첫 번째 태스크입니다.',
         status: '완료',
-        priority: '상',
         dueDate: '2023-11-02',
       },
       {
@@ -82,7 +75,6 @@ const dummyProjects = [
         name: '태스크 2',
         description: '두 번째 태스크입니다.',
         status: '진행 중',
-        priority: '중',
         dueDate: '2023-11-07',
       },
       {
@@ -90,7 +82,6 @@ const dummyProjects = [
         name: '태스크 3',
         description: '세 번째 태스크입니다.',
         status: '진행 중',
-        priority: '하',
         dueDate: '2023-11-10',
       },
     ],
