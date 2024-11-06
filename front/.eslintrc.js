@@ -43,8 +43,6 @@ module.exports = {
     'react/prop-types': 'off',
     // 의존성 파일 검사 비활성화
     'import/no-extraneous-dependencies': 'off',
-    // 화살표 함수의 본문을 항상 중괄호로 감싸야 함
-    'arrow-body-style': ['error', 'always'],
     // 함수형 컴포넌트 정의를 화살표 함수로 강제하지 않음
     'react/function-component-definition': [
       'off',
