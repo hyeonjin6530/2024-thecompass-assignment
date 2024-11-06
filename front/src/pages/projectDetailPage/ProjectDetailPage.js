@@ -22,11 +22,18 @@ const ButtonContainer = styled.div`
   gap: 10px;
 `;
 
+const FilterContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+`;
+
 function ProjectDetail() {
   const { projectId } = useParams();
   const [tasks, setTasks] = useState([]);
   const [editTask, setEditTask] = useState(null);
   const [isTaskModalOpen, setIsTaskModalOpen] = useState(false);
+  const [filterCriterion, setFilterCriterion] = useState('all');
 
   useEffect(() => {
     const foundProject = dummyData.find(
@@ -80,11 +87,39 @@ function ProjectDetail() {
     setIsTaskModalOpen(true);
   };
 
+  const getFilteredAndSortedTasks = () => {
+    let filteredTasks = tasks;
+    if (filterCriterion !== 'all') {
+      filteredTasks = tasks.filter((task) => task.status === filterCriterion);
+    }
+
+    const sortedTasks = [...filteredTasks].sort(
+      (a, b) => new Date(a.dueDate) - new Date(b.dueDate),
+    );
+
+    return sortedTasks;
+  };
+
   return (
     <Container>
       <h1>프로젝트 {projectId} </h1>
+
+      <FilterContainer>
+        <div>
+          <label>필터: </label>
+          <select
+            value={filterCriterion}
+            onChange={(e) => setFilterCriterion(e.target.value)}
+          >
+            <option value="all">전체</option>
+            <option value="진행 중">진행 중</option>
+            <option value="완료">완료</option>
+          </select>
+        </div>
+      </FilterContainer>
+
       <TaskContainer>
-        {tasks.map((task) => (
+        {getFilteredAndSortedTasks().map((task) => (
           <TaskItem
             key={task.taskId}
             task={task}

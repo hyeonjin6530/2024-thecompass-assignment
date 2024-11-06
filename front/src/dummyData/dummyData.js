@@ -26,6 +26,13 @@ const dummyProjects = [
         status: '진행 중',
         dueDate: '2024-11-10',
       },
+      {
+        taskId: '4',
+        name: '태스크 4',
+        description: '날짜 테스트를 위한 태스크입니다.',
+        status: '완료',
+        dueDate: '2024-10-06',
+      },
     ],
   },
   {
