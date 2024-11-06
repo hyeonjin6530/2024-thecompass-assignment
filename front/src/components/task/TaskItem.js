@@ -24,7 +24,7 @@ const TaskName = styled.div`
 `;
 
 const TaskDescription = styled.p`
-  font-size: 14px;
+  font-size: 12px;
   color: #676767;
 `;
 
